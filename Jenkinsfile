@@ -22,9 +22,13 @@ pipeline {
             }
         }
         stage('Unit Test') {
-            steps {
-                sh 'mvn test'
-            }
+    steps {
+        for (int i = 0; i < 60; i++) {
+            echo "${i + 1}"
+            sleep 1
         }
+    }
+    sh "mvn test"
+}
     }
 }
